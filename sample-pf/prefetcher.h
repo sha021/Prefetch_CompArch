@@ -10,7 +10,7 @@
 #define PREFETCHER_H
 
 #include <sys/types.h>
-#include "mem-sim.h"
+#include "../mem-sim.h"
 
 class Prefetcher {
   private:
