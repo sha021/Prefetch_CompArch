@@ -16,11 +16,11 @@ main.o: main.C mem-sim.h CPU.h cache.h memQueue.h prefetcher.h
 memQueue.o: memQueue.C memQueue.h mem-sim.h cache.h
 	${CC} ${CCFLAGS} -c memQueue.C
 
-prefetcher.o: sample-pf/prefetcher.C sample-pf/prefetcher.h mem-sim.h
-	${CC} ${CCFLAGS} -c sample-pf/prefetcher.C
+# prefetcher.o: sample-pf/prefetcher.C sample-pf/prefetcher.h mem-sim.h
+# 	${CC} ${CCFLAGS} -c sample-pf/prefetcher.C
 
-# prefetcher.o: prefetcher.C prefetcher.h mem-sim.h
-# 	${CC} ${CCFLAGS} -c prefetcher.C
+prefetcher.o: prefetcher.C prefetcher.h mem-sim.h
+	${CC} ${CCFLAGS} -c prefetcher.C
 
 clean:
 	rm -f *.o cacheSim
