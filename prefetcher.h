@@ -30,11 +30,25 @@
 
 #include <sys/types.h>
 #include "mem-sim.h"
+#include <vector>
+
+#define RPT_SIZE 4096
+
+
+
+struct RPT {
+	u_int32_t tag;
+	u_int32_t address;
+	u_int32_t stride;
+	int state;
+};
 
 class Prefetcher {
   private:
-	bool _ready;
-	Request _nextReq;
+	RPT rpt[RPT_SIZE];
+	int rptidx;
+	int waitingidx;
+	Request waiting[20];
 
   public:
 	Prefetcher();
@@ -53,6 +67,7 @@ class Prefetcher {
 	 * Note that only the addr, pc, load, issuedAt, and HitL1 should be considered valid data
 	 */
 	void cpuRequest(Request req); 
+
 };
 
 #endif
